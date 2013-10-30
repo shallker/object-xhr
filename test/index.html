@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <script src="/build/build.js"></script>
+  </head>
+  <body>
+    <script>
+      var test = require('simple-test');
+      var ObjectXHR = require('object-xhr');
+
+      test('ObjectXHR', function (done) {
+        var xhr = new ObjectXHR;
+
+        xhr.onreadystatechange = function (XMLHttpRequestProgressEvent) {
+          if (this.readyState === 4) {
+            test.eq(this.status, 200);
+            test.eq(this.statusText, 'OK');
+            done();
+          }
+        }
+
+        xhr.open('GET', '/test/index.html', 'async');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send('hi');
+      });
+
+      test('ObjectXHR HEAD', function (done) {
+        var xhr = new ObjectXHR;
+
+        xhr.onreadystatechange = function (XMLHttpRequestProgressEvent) {
+          if (this.readyState === 4) {
+            test.eq(this.status, 200);
+            test.eq(this.statusText, 'OK');
+            done();
+          }
+        }
+
+        xhr.open('HEAD', '/test/index.html', 'async');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send('hi');
+      });
+    </script>
+  </body>
+</html>

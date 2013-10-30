@@ -1,0 +1,17 @@
+{
+  "name": "object-xhr",
+  "repo": "shallker/object-xhr",
+  "description": "Wrap host object XHLHttpRequest in JavaScript object to provide across browsers interface and inheritance ability",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {
+    "shallker/simple-test": "*"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "lib/object-xhr.js"
+  ]
+}
